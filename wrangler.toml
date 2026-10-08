@@ -1,0 +1,20 @@
+name = "serverless-telecom-simulation"
+main = "workers/src/index.ts"
+compatibility_date = "2024-09-23"
+
+# Subdomain Routing Specification
+# api.pixir.in routes directly to this Worker
+routes = [
+  { pattern = "api.pixir.in/*", zone_name = "pixir.in" }
+]
+
+[vars]
+ENVIRONMENT = "production"
+DEFAULT_SIMULATION_COUNT_LIMIT = 5
+
+# Secrets to be set via: wrangler secret put <NAME>
+# - SUPABASE_URL
+# - SUPABASE_SERVICE_ROLE_KEY
+# - TURNSTILE_SECRET_KEY
+# - TARGET_HASH_SECRET
+# - ADMIN_SECRET
